@@ -17,12 +17,13 @@
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+  <meta name="description" content="Web based Flutter application provided to JRK Brandenbuurg by Tim Siebert">
+  <meta name="theme-color" content="#FFFFFF">
 
   <!-- iOS meta tags & icons -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="wettbewerb">
+  <meta name="apple-mobile-web-app-title" content="Wettbewerb">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
@@ -30,13 +31,73 @@
 
   <title>wettbewerb</title>
   <link rel="manifest" href="manifest.json">
+
+  <style>
+    body {background-color: #FFFFFF;}
+    .loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+  
+    .loader {
+      border: 16px solid #13718E;
+      border-radius: 50%;
+      border: 15px solid;
+      border-top: 16px solid #FFFFFF;
+      border-right: 16px solid #13718E;
+      border-bottom: 16px solid #FFFFFF;
+      border-left: 16px solid #13718E;
+      width: 30px;
+      height: 30px;
+      -webkit-animation: spin 2s linear infinite;
+      animation: spin 1.5s linear infinite;
+    }
+  
+    @-webkit-keyframes spin {
+      0% {
+        -webkit-transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+      }
+    }
+  
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+    </style>
+    <script>
+      async function download() {
+        var pdfAsDataUri = "data:application/pdf;base64, " + pdfData;
+        var link = document.createElement('a');
+        link.download = filename;
+        link.href = pdfAsDataUri;
+        link.type = 'application/pdf';
+        link.click();
+      }
+  </script>
 </head>
 <body>
+  <div class="loading">
+  <div class="loader"></div>
+  </div>
   <!-- This script installs service_worker.js to provide PWA functionality to
        application. For more information, see:
        https://developers.google.com/web/fundamentals/primers/service-workers -->
   <script>
-    var serviceWorkerVersion = '125462417';
+    var serviceWorkerVersion = '1173176211';
     var scriptLoaded = false;
     function loadMainDartJs() {
       if (scriptLoaded) {
